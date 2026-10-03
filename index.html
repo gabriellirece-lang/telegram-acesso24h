@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abrindo acesso</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;font-family:Arial,Helvetica,sans-serif}
+body{
+  background:
+    radial-gradient(circle at 50% 42%, rgba(91,35,125,.22), transparent 34%),
+    linear-gradient(145deg,#08030d,#12051b 55%,#07020c);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.card{
+  width:min(88%,740px);padding:64px 48px 50px;text-align:center;
+  border:1px solid rgba(201,92,255,.38);border-radius:34px;
+  background:linear-gradient(145deg,rgba(80,31,107,.58),rgba(18,5,29,.88));
+  box-shadow:0 0 70px rgba(177,58,255,.10),inset 0 0 40px rgba(255,255,255,.025);
+}
+.icon{
+  width:175px;height:175px;margin:0 auto 45px;border-radius:42px;
+  display:flex;align-items:center;justify-content:center;font-size:70px;
+  background:linear-gradient(145deg,#62208a,#32124c);
+  border:1px solid rgba(221,111,255,.35);
+  box-shadow:inset 0 0 25px rgba(255,255,255,.05);
+  position:relative;
+}
+.icon:before{
+  content:"";position:absolute;inset:20px;border-radius:50%;
+  border:7px solid rgba(198,88,255,.20);
+  border-top-color:#dc68ff;border-left-color:#dc68ff;
+  animation:spin 1.3s linear infinite;
+}
+h1{font-size:48px;margin:0 0 18px;font-weight:800}
+p{font-size:25px;color:#d9c8e2;margin:0 0 48px}
+.progress{height:16px;background:rgba(255,255,255,.12);border-radius:20px;overflow:hidden}
+.bar{
+  height:100%;width:0%;border-radius:20px;
+  background:linear-gradient(90deg,#a92cff,#db76ff);
+  box-shadow:0 0 18px rgba(200,76,255,.7);
+  animation:load 3s linear forwards;
+}
+.status{margin-top:27px;color:#a99ab5;font-size:20px;font-weight:700;letter-spacing:2px}
+.dot{display:inline-block;width:16px;height:16px;border-radius:50%;background:#45d5a2;box-shadow:0 0 15px #45d5a2;margin-right:14px;vertical-align:middle}
+.button{
+  display:none;margin:28px auto 0;padding:14px 28px;border-radius:14px;
+  background:#9f35df;color:#fff;text-decoration:none;font-weight:700
+}
+@keyframes load{to{width:100%}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:600px){
+ .card{padding:55px 28px 42px;border-radius:30px}
+ .icon{width:150px;height:150px;font-size:60px;margin-bottom:38px}
+ h1{font-size:36px}
+ p{font-size:21px;margin-bottom:40px}
+ .status{font-size:16px}
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="icon">🔒</div>
+  <h1>Abrindo acesso</h1>
+  <p>Abrindo o Telegram...</p>
+  <div class="progress"><div class="bar"></div></div>
+  <div class="status"><span class="dot"></span>CONEXÃO SEGURA</div>
+  <a id="manual" class="button" href="#">Abrir Telegram</a>
+</div>
+
+<script>
+/* COLE AQUI O SEU LINK DO TELEGRAM */
+const TELEGRAM_LINK = "https://t.me/+4KhMDrGQDHI3MzA5";
+
+document.getElementById("manual").href = TELEGRAM_LINK;
+
+// Redireciona automaticamente após 3 segundos.
+setTimeout(() => {
+  window.location.href = TELEGRAM_LINK;
+}, 3000);
+
+// Caso o navegador bloqueie a navegação, mostra o botão.
+setTimeout(() => {
+  document.getElementById("manual").style.display = "inline-block";
+}, 3200);
+</script>
+</body>
+</html>
